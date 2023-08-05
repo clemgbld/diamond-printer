@@ -1,7 +1,7 @@
 package app.netlify.clementgombauld.dimondprinter.core.application;
 
 import app.netlify.clementgombauld.dimondprinter.core.domain.CommandLine;
-import app.netlify.clementgombauld.dimondprinter.infra.InMemoryCommandLine;
+import app.netlify.clementgombauld.dimondprinter.adapters.secondary.InMemoryCommandLine;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -17,8 +17,9 @@ class DisplayDiamondTest {
         displayDiamond.display();
         InMemoryCommandLine inMemoryCommandLine = (InMemoryCommandLine) commandLine;
         List<Object> diamondLinesLogs = inMemoryCommandLine.getDiamondLinesLogs();
-        assertEquals(List.of("A"),diamondLinesLogs);
+        assertEquals(List.of("","A"),diamondLinesLogs);
     }
+
 
 
     @Test
@@ -30,7 +31,7 @@ class DisplayDiamondTest {
         List<Object> diamondLinesLogs = inMemoryCommandLine.getDiamondLinesLogs();
         String inputSentence = inMemoryCommandLine.getInputSentence();
         assertEquals("Enter a letter: ",inputSentence);
-        assertEquals(List.of(" A ","B B", " A "),diamondLinesLogs);
+        assertEquals(List.of(""," A ","B B", " A "),diamondLinesLogs);
     }
 
     @Test
@@ -40,8 +41,9 @@ class DisplayDiamondTest {
         displayDiamond.display();
         InMemoryCommandLine inMemoryCommandLine = (InMemoryCommandLine) commandLine;
         List<Object> diamondLinesLogs = inMemoryCommandLine.getDiamondLinesLogs();
-        assertEquals(List.of("  A  ", " B B ", "C  C", " B B ","  A  "),diamondLinesLogs);
+        assertEquals(List.of("","  A  ", " B B ", "C   C", " B B ","  A  "),diamondLinesLogs);
     }
+
 
     @Test
     void  shouldAskTheUserToEnterALetterUntilItDoes(){
@@ -50,7 +52,7 @@ class DisplayDiamondTest {
         displayDiamond.display();
         InMemoryCommandLine inMemoryCommandLine = (InMemoryCommandLine) commandLine;
         List<Object> diamondLinesLogs = inMemoryCommandLine.getDiamondLinesLogs();
-        assertEquals(List.of("Please provide a correct single letter","A"),diamondLinesLogs);
+        assertEquals(List.of("Please provide a correct single letter","","A"),diamondLinesLogs);
 
     }
 

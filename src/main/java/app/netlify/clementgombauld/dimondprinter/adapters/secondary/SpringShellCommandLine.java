@@ -1,15 +1,12 @@
-package app.netlify.clementgombauld.dimondprinter.infra;
-
+package app.netlify.clementgombauld.dimondprinter.adapters.secondary;
 import app.netlify.clementgombauld.dimondprinter.core.domain.CommandLine;
 import org.jline.reader.LineReader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.shell.standard.ShellComponent;
-import org.springframework.shell.standard.ShellMethod;
+import org.springframework.stereotype.Component;
 
-@ShellComponent
+@Component
 public class SpringShellCommandLine implements CommandLine {
-
 
     private LineReader lineReader;
 
@@ -25,7 +22,6 @@ public class SpringShellCommandLine implements CommandLine {
     }
 
     @Override
-    @ShellMethod
     public String getInput(String input) {
         return lineReader.readLine(input);
     }

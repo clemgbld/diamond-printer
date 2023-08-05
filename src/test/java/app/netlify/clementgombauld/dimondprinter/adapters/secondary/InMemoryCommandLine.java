@@ -1,4 +1,4 @@
-package app.netlify.clementgombauld.dimondprinter.infra;
+package app.netlify.clementgombauld.dimondprinter.adapters.secondary;
 
 import app.netlify.clementgombauld.dimondprinter.core.domain.CommandLine;
 

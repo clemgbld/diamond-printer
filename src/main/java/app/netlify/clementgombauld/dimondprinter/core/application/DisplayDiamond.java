@@ -23,7 +23,8 @@ public class DisplayDiamond {
                     .collect(Collectors.toSet())
                     .size() ;
 
-            logDiamondLines(diamondSideSequence,sequenceUniqueLetterLength,0,0);
+            commandLine.log("");
+            logDiamondLines(diamondSideSequence,sequenceUniqueLetterLength,0,0,-1);
         }catch (NotLetterException e){
             commandLine.log("Please provide a correct single letter");
             display();
@@ -31,18 +32,24 @@ public class DisplayDiamond {
 
     }
 
-    private void logDiamondLines(String diamondSideSequence, int sequenceUniqueLetterLength, int i, int intSeparator){
+    private void logDiamondLines(String diamondSideSequence, int sequenceUniqueLetterLength, int i, int intSeparator,int intSeparatorCenter){
         if(i >= diamondSideSequence.length()) return;
-        commandLine.log(buildDiamondLine(diamondSideSequence, sequenceUniqueLetterLength, i, intSeparator));
-        logDiamondLines(diamondSideSequence, sequenceUniqueLetterLength, i + 1, isAfterMiddle(diamondSideSequence, i) ? intSeparator - 1 : intSeparator + 1);
+        commandLine.log(buildDiamondLine(diamondSideSequence, sequenceUniqueLetterLength, i, intSeparator,intSeparatorCenter));
+        logDiamondLines(diamondSideSequence,
+                sequenceUniqueLetterLength,
+                i + 1,
+                isAfterMiddle(diamondSideSequence, i) ? intSeparator - 1 : intSeparator + 1,
+                isAfterMiddle(diamondSideSequence, i) ? intSeparatorCenter - 2 : intSeparatorCenter + 2
+                );
+
     }
 
-    private String buildDiamondLine(String diamondSideSequence, int sequenceUniqueLetterLength, int i, int intSeparator) {
-        return buildSeparator(sequenceUniqueLetterLength, intSeparator) + buildDiamondLineCenter(diamondSideSequence, i, intSeparator) + buildSeparator(sequenceUniqueLetterLength, intSeparator);
+    private String buildDiamondLine(String diamondSideSequence, int sequenceUniqueLetterLength, int i, int intSeparator,int intSeparatorCenter) {
+        return buildSeparator(sequenceUniqueLetterLength, intSeparator) + buildDiamondLineCenter(diamondSideSequence, i, intSeparatorCenter) + buildSeparator(sequenceUniqueLetterLength, intSeparator);
     }
 
-    private static String buildDiamondLineCenter(String diamondSideSequence, int i, int intSeparator) {
-        return diamondSideSequence.charAt(i) == 'A' ? diamondSideSequence.charAt(i) + "" : diamondSideSequence.charAt(i) + SEPARATOR.repeat(intSeparator) + diamondSideSequence.charAt(i);
+    private static String buildDiamondLineCenter(String diamondSideSequence, int i ,int intSeparatorCenter) {
+        return diamondSideSequence.charAt(i) == 'A' ? diamondSideSequence.charAt(i) + "" : diamondSideSequence.charAt(i) + SEPARATOR.repeat(intSeparatorCenter) + diamondSideSequence.charAt(i);
     }
 
     private  String buildSeparator(int sequenceUniqueLetterLength, int i) {
