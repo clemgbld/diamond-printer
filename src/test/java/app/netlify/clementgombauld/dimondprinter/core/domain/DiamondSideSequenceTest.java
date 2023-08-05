@@ -1,6 +1,7 @@
-package app.netlify.clementgombauld.dimondprinter.core.application;
+package app.netlify.clementgombauld.dimondprinter.core.domain;
 
-import app.netlify.clementgombauld.dimondprinter.core.domain.NotLetterException;
+
+import app.netlify.clementgombauld.dimondprinter.core.domain.exceptions.NotLetterException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

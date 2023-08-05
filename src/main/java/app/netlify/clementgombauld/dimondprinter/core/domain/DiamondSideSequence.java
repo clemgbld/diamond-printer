@@ -1,6 +1,6 @@
-package app.netlify.clementgombauld.dimondprinter.core.application;
+package app.netlify.clementgombauld.dimondprinter.core.domain;
 
-import app.netlify.clementgombauld.dimondprinter.core.domain.NotLetterException;
+import app.netlify.clementgombauld.dimondprinter.core.domain.exceptions.NotLetterException;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
