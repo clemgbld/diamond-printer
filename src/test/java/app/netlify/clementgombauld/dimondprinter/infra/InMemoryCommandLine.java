@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InMemoryCommandLine implements CommandLine {
-    private List<String> letters;
+    private final List<String> letters;
 
-    private List<Object> diamondLinesLogs = new ArrayList<>();
+    private final List<Object> diamondLinesLogs = new ArrayList<>();
+
+    private int i;
 
     private String inputSentence;
 
@@ -24,7 +26,9 @@ public class InMemoryCommandLine implements CommandLine {
     @Override
     public String getInput(String input) {
         inputSentence = input;
-        return letters.get(0);
+        String letter = letters.get(i);
+        i++;
+        return letter;
     }
 
     public List<Object> getDiamondLinesLogs(){
