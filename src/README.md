@@ -6,10 +6,3 @@ A small spring shell application that build a diamond based on the letter provid
 - enter a letter
 - a diamond will printed according to the letter that you entered.
 
-example:
-
-    A
-   B B 
-  C   C
-   B B
-    A
