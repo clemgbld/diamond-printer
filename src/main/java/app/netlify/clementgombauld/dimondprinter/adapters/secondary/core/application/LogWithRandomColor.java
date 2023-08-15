@@ -14,7 +14,7 @@ public class LogWithRandomColor {
         this.randomNumGenerator = randomNumGenerator;
     }
 
-    public void log(String input) {
+    public void log(Object input) {
         int colorCode = COLOR_CODE_BASE + randomNumGenerator.generate(COLOR_NON_INCLUSIVE_LIMIT);
         logger.log("\u001B[" + colorCode + "m" + input + "\u001B[0m");
     }
