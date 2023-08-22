@@ -1,6 +1,6 @@
 # Diamond printer
 
-A small spring shell application that build a diamond based on the letter provided.
+A small spring shell application that build a diamond based on the letter provided based on this Kata https://codingdojo.org/kata/Diamond/.
 
 - Start the app and enter diamond
 - enter a letter
